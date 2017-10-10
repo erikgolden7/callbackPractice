@@ -121,7 +121,7 @@ var uniq = function(arr, cb) {
         }
     }
     cb(newArr);
-}
+};
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -129,17 +129,18 @@ uniq(names, function(uniqArr){
 
 
 
-
-
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
 
 
 
-
-    //Code Here for each
+var each = function(arr, cb) {
+	for (var i = 0; i < arr.length; i++) {
+		cb(arr[i], i);
+	}
+}
 
 each(names, function(item, indice){
-  console.log('The item in the ' + indice + ' position is ' + item)
+	console.log('The item in the ' + indice + ' position is ' + item)
 });
 
 
@@ -150,31 +151,35 @@ each(names, function(item, indice){
 
 
 
-
-
- //code here for getUserById
+var getUserById = function(obj, userID, cb) {
+	for (var prop in obj) {
+		if (obj[prop].id == userID) {
+			cb(obj[prop]);
+		}
+	}
+}
 
 var users = [
-  {
-    id: '12d',
-    email: 'tyler@gmail.com',
-    name: 'Tyler',
-    address: '167 East 500 North'
-  },
-  {
-    id: '15a',
-    email: 'cahlan@gmail.com',
-    name: 'Cahlan',
-    address: '135 East 320 North'
-  },
-  {
-    id: '16t',
-    email: 'ryan@gmail.com',
-    name: 'Ryan',
-    address: '192 East 32 North'
-  },
+	{
+		id: '12d',
+		email: 'tyler@gmail.com',
+		name: 'Tyler',
+		address: '167 East 500 North'
+	},
+	{
+		id: '15a',
+		email: 'cahlan@gmail.com',
+		name: 'Cahlan',
+		address: '135 East 320 North'
+	},
+	{
+		id: '16t',
+		email: 'ryan@gmail.com',
+		name: 'Ryan',
+		address: '192 East 32 North'
+	},
 ];
 
 getUserById(users, '16t', function(user){
-  console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address);
+	console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address);
 });
